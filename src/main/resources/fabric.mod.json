@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "bettermounthud",
+  "version": "${version}",
+  "name": "Better Horse HUD",
+  "description": "Improves the ingame HUD while on a mount",
+  "authors": [
+    "Lortseam"
+  ],
+  "contact": {
+    "email": "lortseam@gmail.com",
+    "sources": "https://gitlab.com/Lortseam/better-mount-hud",
+    "issues": "https://gitlab.com/Lortseam/better-mount-hud/-/issues"
+  },
+  "license": "Apache-2.0",
+  "environment": "client",
+  "mixins": [
+    {
+      "config": "bettermounthud.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.7.4"
+  }
+}

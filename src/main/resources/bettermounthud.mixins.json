@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.lortseam.betterhorsehud.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "IngameHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
