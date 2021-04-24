@@ -1,4 +1,4 @@
-package me.lortseam.betterhorsehud.mixin;
+package me.lortseam.bettermounthud.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.InGameHud;
