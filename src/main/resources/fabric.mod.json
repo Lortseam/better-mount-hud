@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "bettermounthud",
   "version": "${version}",
-  "name": "Better Horse HUD",
-  "description": "Improves the ingame HUD while on a mount",
+  "name": "Better Mount HUD",
+  "description": "Improves the ingame HUD while riding a mount",
   "authors": [
     "Lortseam"
   ],
