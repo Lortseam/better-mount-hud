@@ -26,7 +26,8 @@ public abstract class IngameHudMixin {
 
     @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;hasJumpingMount()Z"))
     private boolean bettermounthud$switchBar(ClientPlayerEntity player) {
-        return player.hasJumpingMount() && client.options.keyJump.isPressed();
+        if (!player.hasJumpingMount()) return false;
+        return client.options.keyJump.isPressed() || player.method_3151() > 0;
     }
 
 }
