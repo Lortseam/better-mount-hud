@@ -29,7 +29,7 @@ public abstract class IngameHudMixin {
 
     @ModifyVariable(method = "renderStatusBars", at = @At(value = "STORE", ordinal = 1), ordinal = 10)
     private int bettermounthud$moveAirUp(int y) {
-        if (client.interactionManager.hasStatusBars() && client.player.hasJumpingMount()) {
+        if (client.player.hasJumpingMount()) {
             y -= 10;
         }
         return y;
