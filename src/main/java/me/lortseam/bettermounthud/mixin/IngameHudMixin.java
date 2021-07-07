@@ -16,7 +16,10 @@ public abstract class IngameHudMixin {
 
     @ModifyConstant(method = "renderMountHealth", constant = @Constant(intValue = 39))
     private int bettermounthud$moveMountHealthUp(int yOffset) {
-        return yOffset + 10;
+        if (client.interactionManager.hasStatusBars()) {
+            yOffset += 10;
+        }
+        return yOffset;
     }
 
     @Redirect(method = "renderStatusBars", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;getHeartCount(Lnet/minecraft/entity/LivingEntity;)I"))
@@ -26,7 +29,7 @@ public abstract class IngameHudMixin {
 
     @ModifyVariable(method = "renderStatusBars", at = @At(value = "STORE", ordinal = 1), ordinal = 10)
     private int bettermounthud$moveAirUp(int y) {
-        if (client.player.hasJumpingMount()) {
+        if (client.interactionManager.hasStatusBars() && client.player.hasJumpingMount()) {
             y -= 10;
         }
         return y;
