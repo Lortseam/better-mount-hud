@@ -14,6 +14,15 @@ public abstract class IngameHudMixin {
 
     @Shadow @Final private MinecraftClient client;
 
+    @Shadow
+    private LivingEntity getRiddenEntity() {return null;}
+
+    @Shadow
+    private int getHeartCount(LivingEntity entity) {return 0;}
+
+    @Shadow
+    private int getHeartRows(int heartCount) {return 0;}
+
     @ModifyConstant(method = "renderMountHealth", constant = @Constant(intValue = 39))
     private int bettermounthud$moveMountHealthUp(int yOffset) {
         if (client.interactionManager.hasStatusBars()) {
@@ -29,8 +38,10 @@ public abstract class IngameHudMixin {
 
     @ModifyVariable(method = "renderStatusBars", at = @At(value = "STORE", ordinal = 1), ordinal = 10)
     private int bettermounthud$moveAirUp(int y) {
-        if (client.player.hasJumpingMount()) {
-            y -= 10;
+        LivingEntity entity = getRiddenEntity();
+        if (entity != null) {
+            int rows = getHeartRows(getHeartCount(entity));
+            y -= rows * 10;
         }
         return y;
     }
