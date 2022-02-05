@@ -23,12 +23,12 @@ public abstract class IngameHudMixin {
     @Shadow
     private int getHeartRows(int heartCount) {return 0;}
 
-    @ModifyConstant(method = "renderMountHealth", constant = @Constant(intValue = 39))
-    private int bettermounthud$moveMountHealthUp(int yOffset) {
+    @ModifyVariable(method = "renderMountHealth", at = @At(value = "STORE", ordinal = 0), ordinal = 2)
+    private int bettermounthud$moveMountHealthUp(int y) {
         if (client.interactionManager.hasStatusBars()) {
-            yOffset += 10;
+            y -= 10;
         }
-        return yOffset;
+        return y;
     }
 
     @Redirect(method = "renderStatusBars", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;getHeartCount(Lnet/minecraft/entity/LivingEntity;)I"))
