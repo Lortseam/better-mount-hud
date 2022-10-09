@@ -7,6 +7,7 @@
   "authors": [
     "Lortseam"
   ],
+  "icon": "assets/bettermounthud/icon.png",
   "contact": {
     "email": "lortseam@gmail.com",
     "sources": "https://gitlab.com/Lortseam/better-mount-hud",

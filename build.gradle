@@ -10,11 +10,19 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+repositories {
+    maven {
+        url "https://maven.terraformersmc.com/"
+    }
+}
+
 dependencies {
     // to change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:$minecraft_version"
     mappings "net.fabricmc:yarn:$yarn_mappings:v2"
     modImplementation "net.fabricmc:fabric-loader:$loader_version"
+
+    modLocalRuntime("com.terraformersmc:modmenu:$modmenu_version")
 }
 
 processResources {
