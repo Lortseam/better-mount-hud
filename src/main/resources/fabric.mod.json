@@ -10,8 +10,8 @@
   "icon": "assets/bettermounthud/icon.png",
   "contact": {
     "email": "lortseam@gmail.com",
-    "sources": "https://gitlab.com/Lortseam/better-mount-hud",
-    "issues": "https://gitlab.com/Lortseam/better-mount-hud/-/issues"
+    "sources": "https://github.com/Lortseam/better-mount-hud",
+    "issues": "https://github.com/Lortseam/better-mount-hud/issues"
   },
   "license": "GPL-3.0",
   "environment": "client",
