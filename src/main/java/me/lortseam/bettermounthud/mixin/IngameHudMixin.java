@@ -3,6 +3,7 @@ package me.lortseam.bettermounthud.mixin;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.JumpingMount;
 import net.minecraft.entity.LivingEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -46,10 +47,12 @@ public abstract class IngameHudMixin {
         return y;
     }
 
-    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;hasJumpingMount()Z"))
-    private boolean bettermounthud$switchBar(ClientPlayerEntity player) {
-        if (!client.interactionManager.hasExperienceBar()) return player.hasJumpingMount();
-        return player.hasJumpingMount() && client.options.jumpKey.isPressed() || player.getMountJumpStrength() > 0;
+    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getJumpingMount()Lnet/minecraft/entity/JumpingMount;"))
+    private JumpingMount bettermounthud$switchBar(ClientPlayerEntity player) {
+        var jumpingMount = player.getJumpingMount();
+        if (!client.interactionManager.hasExperienceBar() || client.options.jumpKey.isPressed()
+                || player.getMountJumpStrength() > 0) return jumpingMount;
+        return null;
     }
 
 }
