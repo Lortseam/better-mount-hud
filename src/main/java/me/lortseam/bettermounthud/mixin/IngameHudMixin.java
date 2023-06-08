@@ -24,7 +24,7 @@ public abstract class IngameHudMixin {
     @Shadow
     private int getHeartRows(int heartCount) {return 0;}
 
-    @ModifyVariable(method = "renderMountHealth", at = @At(value = "STORE", ordinal = 0), ordinal = 2)
+    @ModifyVariable(method = "renderMountHealth", at = @At(value = "STORE"), ordinal = 2)
     private int bettermounthud$moveMountHealthUp(int y) {
         if (client.interactionManager.hasStatusBars()) {
             y -= 10;
