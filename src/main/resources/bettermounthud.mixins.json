@@ -4,7 +4,7 @@
   "package": "me.lortseam.bettermounthud.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "GuiMixin"
+    "HudMixin"
   ],
   "injectors": {
     "defaultRequire": 1
